@@ -1,0 +1,12 @@
+df.groupBy("CustomerID") \
+  .sum("TotalAmount") \
+  .show()
+
+df.groupBy("ProductNo") \
+  .sum("Quantity") \
+  .show()
+
+df.groupBy("CustomerID") \
+  .sum("TotalAmount") \
+  .orderBy("sum(TotalAmount)", ascending=False) \
+  .show()

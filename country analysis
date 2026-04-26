@@ -1,0 +1,6 @@
+country_sales = df.groupBy("Country") \
+    .sum("TotalAmount") \
+    .withColumnRenamed("sum(TotalAmount)", "TotalSales") \
+    .orderBy(col("TotalSales").desc())
+
+country_sales.show()

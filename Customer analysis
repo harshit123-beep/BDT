@@ -1,0 +1,6 @@
+top_customers = df.groupBy("CustomerID") \
+    .sum("TotalAmount") \
+    .withColumnRenamed("sum(TotalAmount)", "TotalSpent") \
+    .orderBy(col("TotalSpent").desc())
+
+top_customers.show(10)

@@ -1,0 +1,4 @@
+from pyspark.sql.functions import expr
+
+df = df.withColumn("TotalAmount", expr("Quantity * UnitPrice"))
+df.show(5)

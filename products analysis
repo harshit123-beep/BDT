@@ -1,0 +1,8 @@
+from pyspark.sql.functions import col
+
+popular_products = df.groupBy("ProductNo") \
+    .sum("Quantity") \
+    .withColumnRenamed("sum(Quantity)", "TotalQuantity") \
+    .orderBy(col("TotalQuantity").desc())
+
+popular_products.show(10)

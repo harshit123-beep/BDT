@@ -1,0 +1,19 @@
+from pyspark.sql.functions import col
+
+# Drop null values
+df = df.dropna()
+
+# Convert data types
+df = df.withColumn("Quantity", col("Quantity").cast("int")) \
+       .withColumn("UnitPrice", col("UnitPrice").cast("double"))
+
+df.printSchema()
+
+from pyspark.sql.functions import expr
+df = df.withColumn("TotalAmount", expr("Quantity * UnitPrice"))
+df.show(5)
+
+from pyspark.sql.functions import expr
+
+df = df.withColumn("TotalAmount", expr("Quantity * UnitPrice"))
+df.show(5)

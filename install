@@ -1,0 +1,8 @@
+!pip install pyspark
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder \
+    .appName("ECommerce Customer Behavior Analysis") \
+    .getOrCreate()
+
+print("Spark Session Created")
